@@ -9,7 +9,7 @@ const now = useDateFormat(useNow(), "dddd, D MMMM YYYY");
   <nav class="h-20 border-b">
     <div class="flex h-full items-center justify-between px-4 sm:px-6">
       <div class="flex flex-col">
-        <span class="text-base font-semibold">Dashboard</span>
+        <span class="text-base font-semibold text-foreground">Dashboard</span>
         <span class="text-sm text-muted-foreground">{{ now }}</span>
       </div>
       <div class="flex items-center gap-6">
@@ -19,7 +19,7 @@ const now = useDateFormat(useNow(), "dddd, D MMMM YYYY");
           >
             <SearchIcon class="h-5 w-5 text-muted-foreground" />
           </div>
-          <Input class="pl-10" />
+          <Input class="pl-10" placeholder="Search..." />
         </div>
         <Separator orientation="vertical" class="h-8" />
         <div class="relative">
