@@ -2,6 +2,7 @@
 import {
   ArchiveIcon,
   BellRingIcon,
+  ChevronsUpDownIcon,
   LayoutGridIcon,
   MessageCircleQuestionIcon,
   MessageSquareTextIcon,
@@ -72,25 +73,25 @@ const activeNavigation = computed(() => {
 
 <template>
   <aside
-    class="fixed inset-y-0 left-0 flex min-h-screen w-[280px] flex-col border-r py-2"
+    class="fixed inset-y-0 left-0 flex min-h-screen w-[280px] flex-col border-r"
   >
-    <div class="mx-2 flex h-20 items-center px-2">
+    <div class="flex h-20 items-center px-2">
       <Button
         variant="ghost"
-        class="flex h-auto flex-1 items-center justify-between gap-2 py-2"
+        class="flex h-auto flex-1 items-center justify-between gap-3 py-1"
       >
         <Avatar variant="circle" size="sm">
-          <AvatarImage src="/img/avatar.png" />
+          <AvatarImage src="/img/avatar.jpg" />
           <AvatarFallback>MA</AvatarFallback>
         </Avatar>
         <div class="flex flex-1 flex-col items-start">
           <span class="text-sm">Misbah Ansori</span>
           <span class="text-xs text-muted-foreground">misbah.ansori.dev</span>
         </div>
-        <ChevronsUpDownIcon class="h-5 w-5" />
+        <ChevronsUpDownIcon class="h-5 w-5 text-muted-foreground" />
       </Button>
     </div>
-    <div class="flex flex-1 flex-col items-start gap-8 px-2 py-4">
+    <div class="flex flex-1 flex-col items-start gap-8 px-2 py-6">
       <div
         class="flex w-full flex-col items-start gap-1"
         v-for="nav in navigations"
@@ -113,7 +114,7 @@ const activeNavigation = computed(() => {
         </div>
       </div>
     </div>
-    <div class="flex flex-col items-start gap-1 px-2">
+    <div class="flex flex-col items-start gap-1 px-2 py-6">
       <Button
         variant="ghost"
         class="flex w-full items-center justify-start gap-2 px-3 text-left"
