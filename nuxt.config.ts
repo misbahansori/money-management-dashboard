@@ -1,7 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxtjs/google-fonts"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "shadcn-nuxt",
+    "@nuxtjs/google-fonts",
+    "@vueuse/nuxt",
+    "@nuxtjs/color-mode",
+  ],
   shadcn: {
     prefix: "",
     componentDir: "./components/ui",
@@ -10,5 +16,8 @@ export default defineNuxtConfig({
     families: {
       "Be Vietnam Pro": [100, 300, 400, 500, 600, 700, 800, 900],
     },
+  },
+  colorMode: {
+    classSuffix: "",
   },
 });

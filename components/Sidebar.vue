@@ -6,10 +6,12 @@ import {
   LayoutGridIcon,
   MessageCircleQuestionIcon,
   MessageSquareTextIcon,
+  MoonIcon,
   PackageIcon,
   SettingsIcon,
   ShoppingBagIcon,
   StoreIcon,
+  SunIcon,
   Wallet2Icon,
 } from "lucide-vue-next";
 
@@ -69,6 +71,8 @@ const navigations = [
 const activeNavigation = computed(() => {
   return "/dashboard";
 });
+
+const colorMode = useColorMode();
 </script>
 
 <template>
@@ -130,13 +134,21 @@ const activeNavigation = computed(() => {
         <span class="text-sm">Add Feedback</span>
       </Button>
 
-      <Button
-        variant="ghost"
-        class="flex w-full items-center justify-start gap-2 px-3 text-left"
-      >
-        <span class="text-sm">Toggle Dark Mode</span>
-        <ChevronsUpDownIcon class="h-5 w-5" />
-      </Button>
+      <div>
+        <Button
+          @click="
+            colorMode.preference === 'dark'
+              ? (colorMode.preference = 'light')
+              : (colorMode.preference = 'dark')
+          "
+          variant="ghost"
+          class="flex w-full items-center justify-start gap-2 px-3 text-left"
+        >
+          <SunIcon v-if="colorMode.preference === 'dark'" class="h-5 w-5" />
+
+          <MoonIcon v-else class="h-5 w-5" />
+        </Button>
+      </div>
     </div>
   </aside>
 </template>
