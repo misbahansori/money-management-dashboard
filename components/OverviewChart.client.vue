@@ -19,6 +19,7 @@ type EChartsOption = ComposeOption<
 
 const options = ref<EChartsOption>({
   grid: {
+    left: 70,
     right: 20,
     top: 20,
     bottom: 40,
