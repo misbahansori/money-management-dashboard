@@ -171,7 +171,7 @@ const messages = [
 </script>
 <template>
   <div class="grid grid-cols-4 gap-6 px-4 sm:p-6">
-    <Card v-for="card in cards" class="border-none">
+    <Card v-for="card in cards" class="">
       <CardContent class="relative flex items-start gap-6 px-6 py-6">
         <div class="rounded-md bg-accent p-2.5">
           <Component :is="card.icon" class="h-6 w-6 text-muted-foreground" />
@@ -185,7 +185,7 @@ const messages = [
         <ArrowUpRight class="absolute right-4 top-4 h-5 w-5 text-muted" />
       </CardContent>
     </Card>
-    <Card class="col-span-4 border-none">
+    <Card class="col-span-4">
       <CardContent class="grid grid-cols-2 p-0">
         <div>
           <CardHeader class="flex flex-row items-center justify-between p-4">
@@ -297,7 +297,7 @@ const messages = [
         </div>
       </CardContent>
     </Card>
-    <Card class="col-span-2 border-none">
+    <Card class="col-span-2">
       <CardContent class="px-2">
         <CardHeader class="p-4">
           <CardTitle class="text-xl">Recent Messages</CardTitle>
@@ -309,7 +309,7 @@ const messages = [
           <div
             v-for="message in messages"
             :key="message.name"
-            class="hover:bg-default rounded-xl"
+            class="rounded-xl"
           >
             <div class="flex items-center gap-4 p-4">
               <Avatar :name="message.name" size="sm" :variant="'rounded'">
@@ -351,7 +351,7 @@ const messages = [
         </ScrollArea>
       </CardContent>
     </Card>
-    <Card class="col-span-2 border-none">
+    <Card class="col-span-2">
       <CardContent class="p-0">
         <CardHeader class="p-4">
           <CardTitle class="text-xl">Recent Orders</CardTitle>

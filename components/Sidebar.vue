@@ -99,6 +99,11 @@ const colorMode = useColorMode();
           <Button
             :variant="activeNavigation === child.url ? 'secondary' : 'ghost'"
             class="flex w-full items-center justify-start gap-2 px-3 text-left"
+            :class="
+              activeNavigation === child.url
+                ? 'text-foreground'
+                : 'text-muted-foreground'
+            "
             v-for="child in nav.children"
             :key="child.url"
           >
@@ -113,14 +118,14 @@ const colorMode = useColorMode();
     <div class="flex flex-col items-start gap-1 px-2 py-6">
       <Button
         variant="ghost"
-        class="flex w-full items-center justify-start gap-2 px-3 text-left"
+        class="flex w-full items-center justify-start gap-2 px-3 text-left text-muted-foreground"
       >
         <MessageCircleQuestionIcon class="h-5 w-5" />
         <span class="text-sm">Get Support</span>
       </Button>
       <Button
         variant="ghost"
-        class="flex w-full items-center justify-start gap-2 px-3 text-left"
+        class="flex w-full items-center justify-start gap-2 px-3 text-left text-muted-foreground"
       >
         <MessageSquareTextIcon class="h-5 w-5" />
         <span class="text-sm">Add Feedback</span>
@@ -134,7 +139,7 @@ const colorMode = useColorMode();
               : (colorMode.preference = 'dark')
           "
           variant="ghost"
-          class="flex w-full items-center justify-start gap-2 px-3 text-left"
+          class="flex w-full items-center justify-start gap-2 px-3 text-left text-muted-foreground"
         >
           <SunIcon v-if="colorMode.preference === 'dark'" class="h-5 w-5" />
 

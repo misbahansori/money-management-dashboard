@@ -1,11 +1,11 @@
 <template>
   <div class="flex">
     <Sidebar />
-    <div class="flex min-h-screen flex-1 flex-col">
+    <div class="flex h-screen flex-1 flex-col">
       <Navbar />
-      <main class="bg-default flex-1">
+      <ScrollArea class="flex-1" as="main">
         <slot />
-      </main>
+      </ScrollArea>
     </div>
   </div>
 </template>
