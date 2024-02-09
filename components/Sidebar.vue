@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   ArchiveIcon,
-  BellRingIcon,
   ChevronsUpDownIcon,
   LayoutGridIcon,
   MessageCircleQuestionIcon,
@@ -59,11 +58,6 @@ const navigations = [
         icon: SettingsIcon,
         url: "/settings",
       },
-      {
-        title: "Notification",
-        icon: BellRingIcon,
-        url: "/notification",
-      },
     ],
   },
 ];
@@ -76,10 +70,8 @@ const colorMode = useColorMode();
 </script>
 
 <template>
-  <aside
-    class="fixed inset-y-0 left-0 flex min-h-screen w-[280px] flex-col border-r"
-  >
-    <div class="flex h-20 items-center px-2">
+  <aside class="flex min-h-screen w-[280px] flex-col border-r">
+    <div class="flex h-20 items-center border-b px-2">
       <Button
         variant="ghost"
         class="flex h-auto flex-1 items-center justify-between gap-3 py-1"

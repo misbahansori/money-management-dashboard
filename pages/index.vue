@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 <template>
-  <div>
-    <nav class="flex h-20 items-center justify-between border-b"></nav>
+  <div class="flex">
     <Sidebar />
+    <div class="flex-1">
+      <Navbar />
+    </div>
   </div>
 </template>
