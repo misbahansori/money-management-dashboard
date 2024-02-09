@@ -3,7 +3,7 @@
     <Sidebar />
     <div class="flex min-h-screen flex-1 flex-col">
       <Navbar />
-      <main class="bg-base flex-1">
+      <main class="bg-default flex-1">
         <slot />
       </main>
     </div>
