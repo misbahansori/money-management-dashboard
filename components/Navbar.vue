@@ -10,8 +10,12 @@ const { toggleSidebar } = useSidebar();
 <template>
   <nav class="h-20 border-b">
     <div class="flex h-full items-center justify-between px-4 sm:px-6">
-      <div class="flex items-center gap-4">
-        <Button variant="ghost" class="h-auto p-2" @click="toggleSidebar">
+      <div class="-ml-2 flex items-center gap-4">
+        <Button
+          variant="ghost"
+          class="flex h-auto p-2 md:hidden"
+          @click="toggleSidebar"
+        >
           <MenuIcon class="h-6 w-6 text-muted-foreground" />
         </Button>
         <div class="flex flex-col">

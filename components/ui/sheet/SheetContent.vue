@@ -16,6 +16,7 @@ import { sheetVariants, type SheetVariants } from ".";
 interface SheetContentProps extends DialogContentProps {
   class?: HTMLAttributes["class"];
   side?: SheetVariants["side"];
+  position?: SheetVariants["position"];
   withCloseButton?: boolean;
 }
 
@@ -28,7 +29,7 @@ const props = defineProps<SheetContentProps>();
 const emits = defineEmits<DialogContentEmits>();
 
 const delegatedProps = computed(() => {
-  const { class: _, side, ...delegated } = props;
+  const { class: _, side, position, ...delegated } = props;
 
   return delegated;
 });
