@@ -63,7 +63,7 @@ const messages = [
 ];
 </script>
 <template>
-  <Card class="col-span-2">
+  <Card>
     <CardContent class="p-0">
       <CardHeader class="p-4">
         <CardTitle class="text-xl">Recent Messages</CardTitle>

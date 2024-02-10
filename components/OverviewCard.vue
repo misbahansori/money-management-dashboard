@@ -43,8 +43,8 @@ const hightlights = [
 </script>
 
 <template>
-  <Card class="col-span-4">
-    <CardContent class="grid grid-cols-2 p-0">
+  <Card>
+    <CardContent class="grid grid-cols-1 p-0 md:grid-cols-2">
       <div>
         <CardHeader class="flex flex-row items-center justify-between p-4">
           <CardTitle class="text-xl">Bussiness Overview</CardTitle>

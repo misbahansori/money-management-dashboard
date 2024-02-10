@@ -13,7 +13,7 @@ const { toggleSidebar } = useSidebar();
       <div class="-ml-2 flex items-center gap-4">
         <Button
           variant="ghost"
-          class="flex h-auto p-2 md:hidden"
+          class="flex h-auto p-2 lg:hidden"
           @click="toggleSidebar"
         >
           <MenuIcon class="h-6 w-6 text-muted-foreground" />

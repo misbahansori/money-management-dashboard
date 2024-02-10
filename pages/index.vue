@@ -30,10 +30,12 @@ const cards = [
 ];
 </script>
 <template>
-  <div class="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 sm:p-6 lg:grid-cols-4">
+  <div
+    class="grid grid-cols-1 gap-6 px-4 py-6 sm:grid-cols-2 sm:px-6 lg:grid-cols-4"
+  >
     <StatCard v-for="card in cards" :card="card" />
-    <OverviewCard />
-    <RecentMessagesCard />
-    <RecentOrdersCard />
+    <OverviewCard class="sm:col-span-2 lg:col-span-4" />
+    <RecentMessagesCard class="lg:col-span-2" />
+    <RecentOrdersCard class="lg:col-span-2" />
   </div>
 </template>

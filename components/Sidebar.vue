@@ -3,7 +3,7 @@ const { isSidebarOpen } = useSidebar();
 </script>
 
 <template>
-  <SidebarItem class="hidden md:block" />
+  <SidebarItem class="hidden lg:flex" />
 
   <Sheet v-model:open="isSidebarOpen">
     <SheetContent side="left" :with-close-button="false" class="w-auto p-0">
