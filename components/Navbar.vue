@@ -1,16 +1,23 @@
 <script setup lang="ts">
-import { BellIcon, SearchIcon } from "lucide-vue-next";
+import { BellIcon, MenuIcon, SearchIcon } from "lucide-vue-next";
 
 // Thursday, 1 January 1970
 const now = useDateFormat(useNow(), "dddd, D MMMM YYYY");
+
+const { toggleSidebar } = useSidebar();
 </script>
 
 <template>
   <nav class="h-20 border-b">
     <div class="flex h-full items-center justify-between px-4 sm:px-6">
-      <div class="flex flex-col">
-        <span class="text-base font-semibold text-foreground">Dashboard</span>
-        <span class="text-sm text-muted-foreground">{{ now }}</span>
+      <div class="flex items-center gap-4">
+        <Button variant="ghost" class="h-auto p-2" @click="toggleSidebar">
+          <MenuIcon class="h-6 w-6 text-muted-foreground" />
+        </Button>
+        <div class="flex flex-col">
+          <span class="text-base font-semibold text-foreground">Dashboard</span>
+          <span class="text-sm text-muted-foreground">{{ now }}</span>
+        </div>
       </div>
       <div class="flex items-center gap-6">
         <div class="relative">

@@ -67,85 +67,97 @@ const activeNavigation = computed(() => {
 });
 
 const colorMode = useColorMode();
+
+const { isSidebarOpen } = useSidebar();
 </script>
 
 <template>
-  <aside class="flex min-h-screen w-[280px] flex-col border-r">
-    <div class="flex h-20 items-center border-b px-2">
-      <Button
-        variant="ghost"
-        class="flex h-auto flex-1 items-center justify-between gap-3 py-1"
-      >
-        <Avatar variant="circle" size="sm">
-          <AvatarImage src="/img/avatar.jpg" />
-          <AvatarFallback>MA</AvatarFallback>
-        </Avatar>
-        <div class="flex flex-1 flex-col items-start">
-          <span class="text-sm">Misbah Ansori</span>
-          <span class="text-xs text-muted-foreground">misbah.ansori.dev</span>
-        </div>
-        <ChevronsUpDownIcon class="h-5 w-5 text-muted-foreground" />
-      </Button>
-    </div>
-    <div class="flex flex-1 flex-col items-start gap-8 px-2 py-6">
-      <div
-        class="flex w-full flex-col items-start gap-1"
-        v-for="nav in navigations"
-      >
-        <span class="px-2 text-xs font-medium uppercase text-muted-foreground">
-          {{ nav.title }}
-        </span>
-        <div class="flex w-full flex-col items-start gap-2 pt-1">
+  <Sheet v-model:open="isSidebarOpen">
+    <SheetContent side="left" :with-close-button="false" class="w-auto p-0">
+      <aside class="flex min-h-screen w-[260px] flex-col border-r">
+        <div class="flex h-20 items-center border-b px-2">
           <Button
-            :variant="activeNavigation === child.url ? 'secondary' : 'ghost'"
-            class="flex w-full items-center justify-start gap-2 px-3 text-left"
-            :class="
-              activeNavigation === child.url
-                ? 'text-foreground'
-                : 'text-muted-foreground'
-            "
-            v-for="child in nav.children"
-            :key="child.url"
+            variant="ghost"
+            class="flex h-auto flex-1 items-center justify-between gap-3 px-3 py-2"
           >
-            <Component :is="child.icon" class="w- h-5" />
-            <span class="text-sm">
-              {{ child.title }}
-            </span>
+            <Avatar variant="circle" size="sm">
+              <AvatarImage src="/img/avatar.jpg" />
+              <AvatarFallback>MA</AvatarFallback>
+            </Avatar>
+            <div class="flex flex-1 flex-col items-start">
+              <span class="text-sm">Misbah Ansori</span>
+              <span class="text-xs text-muted-foreground">
+                misbah.ansori.dev
+              </span>
+            </div>
+            <ChevronsUpDownIcon class="h-5 w-5 text-muted-foreground" />
           </Button>
         </div>
-      </div>
-    </div>
-    <div class="flex flex-col items-start gap-1 px-2 py-6">
-      <Button
-        variant="ghost"
-        class="flex w-full items-center justify-start gap-2 px-3 text-left text-muted-foreground"
-      >
-        <MessageCircleQuestionIcon class="h-5 w-5" />
-        <span class="text-sm">Get Support</span>
-      </Button>
-      <Button
-        variant="ghost"
-        class="flex w-full items-center justify-start gap-2 px-3 text-left text-muted-foreground"
-      >
-        <MessageSquareTextIcon class="h-5 w-5" />
-        <span class="text-sm">Add Feedback</span>
-      </Button>
+        <div class="flex flex-1 flex-col items-start gap-8 px-2 py-6">
+          <div
+            class="flex w-full flex-col items-start gap-1"
+            v-for="nav in navigations"
+          >
+            <span
+              class="px-2 text-xs font-medium uppercase text-muted-foreground"
+            >
+              {{ nav.title }}
+            </span>
+            <div class="flex w-full flex-col items-start gap-2 pt-1">
+              <Button
+                :variant="
+                  activeNavigation === child.url ? 'secondary' : 'ghost'
+                "
+                class="flex w-full items-center justify-start gap-2 px-3 text-left"
+                :class="
+                  activeNavigation === child.url
+                    ? 'text-foreground'
+                    : 'text-muted-foreground'
+                "
+                v-for="child in nav.children"
+                :key="child.url"
+              >
+                <Component :is="child.icon" class="w- h-5" />
+                <span class="text-sm">
+                  {{ child.title }}
+                </span>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-start gap-1 px-2 py-6">
+          <Button
+            variant="ghost"
+            class="flex w-full items-center justify-start gap-2 px-3 text-left text-muted-foreground"
+          >
+            <MessageCircleQuestionIcon class="h-5 w-5" />
+            <span class="text-sm">Get Support</span>
+          </Button>
+          <Button
+            variant="ghost"
+            class="flex w-full items-center justify-start gap-2 px-3 text-left text-muted-foreground"
+          >
+            <MessageSquareTextIcon class="h-5 w-5" />
+            <span class="text-sm">Add Feedback</span>
+          </Button>
 
-      <div>
-        <Button
-          @click="
-            colorMode.preference === 'dark'
-              ? (colorMode.preference = 'light')
-              : (colorMode.preference = 'dark')
-          "
-          variant="ghost"
-          class="flex w-full items-center justify-start gap-2 px-3 text-left text-muted-foreground"
-        >
-          <SunIcon v-if="colorMode.preference === 'dark'" class="h-5 w-5" />
+          <div>
+            <Button
+              @click="
+                colorMode.preference === 'dark'
+                  ? (colorMode.preference = 'light')
+                  : (colorMode.preference = 'dark')
+              "
+              variant="ghost"
+              class="flex w-full items-center justify-start gap-2 px-3 text-left text-muted-foreground"
+            >
+              <SunIcon v-if="colorMode.preference === 'dark'" class="h-5 w-5" />
 
-          <MoonIcon v-else class="h-5 w-5" />
-        </Button>
-      </div>
-    </div>
-  </aside>
+              <MoonIcon v-else class="h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </aside>
+    </SheetContent>
+  </Sheet>
 </template>
